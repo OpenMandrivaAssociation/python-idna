@@ -1,13 +1,13 @@
 %define srcname idna
 
 Name:           python-%{srcname}
-Version:        2.4
+Version:        2.5
 Release:        1
 Summary:        Internationalized Domain Names in Applications (IDNA)
 Group:		Development/Python
 License:        BSD and Python and Unicode
 URL:            https://github.com/kjd/idna
-Source0:        https://pypi.python.org/packages/source/i/%{srcname}/%{srcname}-%{version}.tar.gz
+Source0:        https://github.com/kjd/idna/archive/v%{version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  pkgconfig(python2)
