@@ -1,7 +1,7 @@
 %define srcname idna
 
 Name:           python-%{srcname}
-Version:        2.5
+Version:        2.6
 Release:        1
 Summary:        Internationalized Domain Names in Applications (IDNA)
 Group:		Development/Python
