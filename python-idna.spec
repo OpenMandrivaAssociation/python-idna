@@ -14,6 +14,8 @@ BuildRequires:  pkgconfig(python2)
 BuildRequires:  pythonegg(setuptools)
 BuildRequires:  pkgconfig(python3)
 BuildRequires:  python3egg(setuptools)
+BuildRequires:  python2-pkg-resources
+BuildRequires:  python-pkg-resources
 
 %description
 A library to support the Internationalised Domain Names in Applications (IDNA)
