@@ -1,13 +1,13 @@
 %define srcname idna
 
 Name:           python-%{srcname}
-Version:        2.7
-Release:        2
+Version:        2.8
+Release:        1
 Summary:        Internationalized Domain Names in Applications (IDNA)
 Group:		Development/Python
 License:        BSD and Python and Unicode
 URL:            https://github.com/kjd/idna
-Source0:        https://github.com/kjd/idna/archive/v%{version}.tar.gz
+Source0:        https://github.com/kjd/idna/archive/%{srcname}-%{version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  pkgconfig(python2)
@@ -42,34 +42,32 @@ The library is also intended to act as a suitable drop-in replacement for the
 currently only supports the older 2003 specification.
 
 %prep
-%setup -q -n %{srcname}-%{version}
+%autosetup -n %{srcname}-%{version} -p1
 # Remove bundled egg-info
 rm -rf %{srcname}.egg-info
 
 cp -a . %{py2dir}
 
-
 %build
 %__python setup.py build
 
-pushd %{py2dir}
+cd %{py2dir}
 %{__python2} setup.py build
-popd
+cd -
 
 %install
-pushd %{py2dir}
+cd %{py2dir}
 %{__python2} setup.py install --skip-build --root %{buildroot}
-popd
+cd -
 
 %__python setup.py install --skip-build --root %{buildroot}
 
 %check
 %__python setup.py test
 
-pushd %{py2dir}
+cd %{py2dir}
 %__python2 setup.py test
-popd
-
+cd -
 
 %files
 %doc README.rst HISTORY.rst LICENSE.rst
