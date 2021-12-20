@@ -42,6 +42,6 @@ rm -rf %{srcname}.egg-info
 %__python setup.py test
 
 %files
-%doc README.rst HISTORY.rst LICENSE.rst
+%doc README.rst HISTORY.rst
 %{py_puresitedir}/%{srcname}
 %{py_puresitedir}/%{srcname}-%{version}-py%{py_ver}.egg-info
