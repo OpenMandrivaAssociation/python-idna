@@ -1,21 +1,17 @@
 %define srcname idna
 
-Name:           python-%{srcname}
+Name:		python-%{srcname}
 Version:	3.3
-Release:	2
-Summary:        Internationalized Domain Names in Applications (IDNA)
+Release:	3
+Summary:	Internationalized Domain Names in Applications (IDNA)
 Group:		Development/Python
-License:        BSD and Python and Unicode
-URL:            https://github.com/kjd/idna
-Source0:        https://github.com/kjd/idna/archive/v%{version}/%{srcname}-%{version}.tar.gz
-BuildArch:      noarch
-
-BuildRequires:  pkgconfig(python2)
-BuildRequires:  python3dist(setuptools)
-BuildRequires:  pkgconfig(python3)
-BuildRequires:  python2dist(setuptools)
-BuildRequires:  python2-pkg-resources
-BuildRequires:  python-pkg-resources
+License:	BSD and Python and Unicode
+URL:		https://github.com/kjd/idna
+Source0:	https://github.com/kjd/idna/archive/v%{version}/%{srcname}-%{version}.tar.gz
+BuildArch:	noarch
+BuildRequires:	python3dist(setuptools)
+BuildRequires:	pkgconfig(python)
+BuildRequires:	python-pkg-resources
 
 %description
 A library to support the Internationalised Domain Names in Applications (IDNA)
@@ -33,13 +29,13 @@ currently only supports the older 2003 specification.
 rm -rf %{srcname}.egg-info
 
 %build
-%__python setup.py build
+%py_build
 
 %install
-%__python setup.py install --skip-build --root %{buildroot}
+%py_install
 
 %check
-%__python setup.py test
+python setup.py test
 
 %files
 %doc README.rst HISTORY.rst
