@@ -2,7 +2,7 @@
 
 Name:		python-%{srcname}
 Version:	3.3
-Release:	3
+Release:	4
 Summary:	Internationalized Domain Names in Applications (IDNA)
 Group:		Development/Python
 License:	BSD and Python and Unicode
