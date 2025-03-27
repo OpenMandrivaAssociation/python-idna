@@ -1,15 +1,15 @@
 %define srcname idna
 
 Name:		python-%{srcname}
-Version:	3.3
-Release:	4
+Version:	3.10
+Release:	1
 Summary:	Internationalized Domain Names in Applications (IDNA)
 Group:		Development/Python
 License:	BSD and Python and Unicode
 URL:		https://github.com/kjd/idna
 Source0:	https://github.com/kjd/idna/archive/v%{version}/%{srcname}-%{version}.tar.gz
 BuildArch:	noarch
-BuildRequires:	python3dist(setuptools)
+BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	pkgconfig(python)
 BuildRequires:	python-pkg-resources
 
@@ -25,8 +25,6 @@ currently only supports the older 2003 specification.
 
 %prep
 %autosetup -n %{srcname}-%{version} -p1
-# Remove bundled egg-info
-rm -rf %{srcname}.egg-info
 
 %build
 %py_build
@@ -34,10 +32,7 @@ rm -rf %{srcname}.egg-info
 %install
 %py_install
 
-%check
-python setup.py test
-
 %files
 %doc README.rst HISTORY.rst
 %{py_puresitedir}/%{srcname}
-%{py_puresitedir}/%{srcname}-%{version}-py%{py_ver}.egg-info
+%{py_puresitedir}/%{srcname}-%{version}.dist-info
