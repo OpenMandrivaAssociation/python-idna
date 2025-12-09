@@ -1,7 +1,7 @@
 %define srcname idna
 
 Name:		python-%{srcname}
-Version:	3.10
+Version:	3.11
 Release:	1
 Summary:	Internationalized Domain Names in Applications (IDNA)
 Group:		Development/Python
@@ -9,6 +9,7 @@ License:	BSD and Python and Unicode
 URL:		https://github.com/kjd/idna
 Source0:	https://github.com/kjd/idna/archive/v%{version}/%{srcname}-%{version}.tar.gz
 BuildArch:	noarch
+BuildSystem:	python
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	pkgconfig(python)
 BuildRequires:	python-pkg-resources
@@ -22,15 +23,6 @@ different results from the earlier standard from 2003.
 The library is also intended to act as a suitable drop-in replacement for the
 "encodings.idna" module that comes with the Python standard library but
 currently only supports the older 2003 specification.
-
-%prep
-%autosetup -n %{srcname}-%{version} -p1
-
-%build
-%py_build
-
-%install
-%py_install
 
 %files
 %doc README.rst HISTORY.rst
