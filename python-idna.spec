@@ -1,18 +1,21 @@
-%define srcname idna
+%define module idna
 
-Name:		python-%{srcname}
-Version:	3.11
-Release:	2
+Name:		python-idna
+Version:	3.15
+Release:	1
 Summary:	Internationalized Domain Names in Applications (IDNA)
 Group:		Development/Python
-License:	BSD and Python and Unicode
+License:	BSD-3-Clause
 URL:		https://github.com/kjd/idna
-Source0:	https://github.com/kjd/idna/archive/v%{version}/%{srcname}-%{version}.tar.gz
-BuildArch:	noarch
+Source0:	%{URL}/archive/v%{version}/%{name}-%{version}.tar.gz
+
 BuildSystem:	python
-BuildRequires:	python%{pyver}dist(setuptools)
+BuildArch:	noarch
 BuildRequires:	pkgconfig(python)
-BuildRequires:	python-pkg-resources
+BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(flit-core)
+BuildRequires:	python%{pyver}dist(wheel)
+
 
 %description
 A library to support the Internationalised Domain Names in Applications (IDNA)
@@ -25,6 +28,6 @@ The library is also intended to act as a suitable drop-in replacement for the
 currently only supports the older 2003 specification.
 
 %files
-%doc README.rst HISTORY.rst
-%{py_puresitedir}/%{srcname}
-%{py_puresitedir}/%{srcname}-%{version}.dist-info
+%doc README.md HISTORY.md
+%{python_sitelib}/%{module}
+%{python_sitelib}/%{module}-%{version}.dist-info
