@@ -1,7 +1,7 @@
 %define module idna
 
 Name:		python-idna
-Version:	3.15
+Version:	3.16
 Release:	1
 Summary:	Internationalized Domain Names in Applications (IDNA)
 Group:		Development/Python
@@ -29,5 +29,6 @@ currently only supports the older 2003 specification.
 
 %files
 %doc README.md HISTORY.md
+%{_bindir}/%{module}
 %{python_sitelib}/%{module}
 %{python_sitelib}/%{module}-%{version}.dist-info
